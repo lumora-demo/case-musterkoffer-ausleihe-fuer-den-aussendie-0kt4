@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AppShell } from "@/components/app-shell";
+import { ToastProvider } from "@/components/ui";
 import { de } from "@/content/de";
 import "./globals.css";
 
@@ -21,7 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="de" className={`${geist.variable} ${geistMono.variable} h-full antialiased`}>
       {/* data-app-shell: verhält sich wie eine App; ui-dense: dichte App-Größen (globals.css) */}
       <body data-app-shell className="ui-dense flex min-h-full flex-col font-sans">
-        <AppShell>{children}</AppShell>
+        <ToastProvider>
+          <AppShell>{children}</AppShell>
+        </ToastProvider>
       </body>
     </html>
   );

@@ -120,7 +120,10 @@ Fließtext höchstens 65–72 Zeichen breit. Überschriften mit `text-wrap: bala
 | `EmptyState` | leerer Zustand: Symbol, Titel, ein Satz, ein Knopf zum Anfangen |
 | `Hinweis` | Info, Warnung, Fehler im Inhalt: Titel sagt was, Text sagt, was zu tun ist |
 | `Field` + `Input` / `Textarea` / `Select` | Beschriftung **über** dem Feld, Hinweis darunter, Fehler ersetzt den Hinweis; nie nur Platzhalter |
-| `Segmented` | Umschalter für andere Darstellung oder kurze Auswahl, höchstens 5 Segmente |
+| `Segmented` | Umschalter für andere Darstellung oder kurze Auswahl, höchstens 5 Segmente; am Handy volle Breite |
+| `Dialog` | Formular (520 px) oder Rückfrage (420 px) über der Seite; am Handy Fenster von unten. `Esc`, Klick daneben und X schließen |
+| `ToastProvider` / `useToast` | Bestätigung nach einer Aktion („Reserviert …“), unten eingeblendet, 6 s, optional mit „Rückgängig“ statt Rückfrage; `aria-live` |
+| `Punkt` | Kategorie-Punkt (`cat-1` … `cat-4`) vor einem Namen, nie allein |
 
 Jeder Baustein hat die Zustände Ruhe, Hover, Fokus (Ring immer sichtbar), Gedrückt und Gesperrt. Gesperrt sparsam: lieber klickbar lassen und erklären, was fehlt.
 
