@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 // Bausteine mit Zustand liegen in eigenen Dateien ("use client") und werden hier mit ausgegeben.
 export { PageHeader } from "./page-header";
 export { Segmented } from "./segmented";
+export { Dialog } from "./dialog";
+export { ToastProvider, useToast } from "./toast";
 
 // Knöpfe: genau ein „primary“ je Ansicht. Icon links vom Text.
 const KNOPF = {
@@ -89,6 +91,13 @@ const TON = {
 
 export function Badge({ children, ton = "neutral" }: { children: React.ReactNode; ton?: keyof typeof TON }) {
   return <span className={cn("inline-flex h-[22px] w-fit shrink-0 items-center gap-1 rounded-full px-2 text-[12px] font-semibold", TON[ton])}>{children}</span>;
+}
+
+// Kategorie-Punkt vor einem Namen (cat-1 … cat-4). Nie als Fläche, immer mit Text daneben.
+const PUNKT = { 1: "bg-cat-1", 2: "bg-cat-2", 3: "bg-cat-3", 4: "bg-cat-4" } as const;
+
+export function Punkt({ farbe }: { farbe: keyof typeof PUNKT }) {
+  return <span aria-hidden className={cn("inline-block size-2 shrink-0 rounded-full", PUNKT[farbe])} />;
 }
 
 // Kennzahl: Beschriftung klein, Zahl groß mit gleich breiten Ziffern. `hinweis` z. B. „Testdaten“.
