@@ -13,11 +13,17 @@ export function Segmented<T extends string>({ label, werte, wert, setze }: { lab
           aria-pressed={wert === w.id}
           onClick={() => setze(w.id)}
           className={cn(
-            "h-(--ctl-h-s) min-w-0 flex-1 rounded-[8px] px-2 sm:px-3text-control text-text-2 transition-[background-color,box-shadow] duration-(--dur) ease-(--ease-out) pointer-coarse:min-h-11",
+            "h-(--ctl-h-s) min-w-0 flex-1 whitespace-nowrap rounded-[8px] sm:min-w-fit px-2 sm:px-3 text-control tabular-nums text-text-2 transition-[background-color,box-shadow] duration-(--dur) ease-(--ease-out) pointer-coarse:min-h-11",
             wert === w.id && "bg-surface font-medium text-text shadow-card",
           )}
         >
-          {w.name}
+          {/* Unsichtbar in fetter Schrift: hält die Breite fest, damit beim Umschalten nichts springt */}
+          <span className="inline-grid">
+            <span aria-hidden className="invisible col-start-1 row-start-1 font-medium">
+              {w.name}
+            </span>
+            <span className="col-start-1 row-start-1">{w.name}</span>
+          </span>
         </button>
       ))}
     </div>
